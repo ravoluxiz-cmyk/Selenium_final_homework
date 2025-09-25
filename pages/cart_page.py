@@ -58,6 +58,7 @@
 #     # Methods
 #     def cart_page_actions(self):
 #         """Основные действия на странице корзины"""
+#         Logger.add_start_step(method='cart_page_actions')
 #         self.get_current_url()
 #
 #         # Дождаться загрузки страницы корзины
@@ -66,3 +67,4 @@
 #         )
 #
 #         self.click_confirmation()
+#         Logger.add_end_step(url=self.get_current_url(), method='cart_page_actions')

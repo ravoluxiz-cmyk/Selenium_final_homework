@@ -1,5 +1,6 @@
 import time
 
+from pages.cart_page import Cart_page
 # from pages.cart_page import Cart_page
 from pages.catalog_page import Catalog_page
 from pages.main_page import Main_page
@@ -13,5 +14,8 @@ def test_smoke(set_up):
 
     catpage = Catalog_page(set_up)
     catpage.catalog_page_actions()
+    #
+    # cp = Cart_page(set_up)
+    # cp.cart_page_actions()
 
     time.sleep(3)

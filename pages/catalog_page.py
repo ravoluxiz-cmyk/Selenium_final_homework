@@ -55,8 +55,10 @@ class Catalog_page(Base):
 
     def catalog_page_actions(self):
 
+        Logger.add_start_step(method='cart_page_actions')
         self.get_current_url()
         self.click_button_russian_classics()
         self.click_button_fedor_dostoevsky()
         self.click_button_buy_button()
         self.click_button_cart()
+        Logger.add_end_step(url=self.get_current_url(), method='cart_page_actions')
