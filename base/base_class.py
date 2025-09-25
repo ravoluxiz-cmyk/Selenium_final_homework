@@ -1,7 +1,7 @@
 import datetime
 import time
 
-from selenium.common import ElementClickInterceptedException, TimeoutException
+from selenium.common import ElementClickInterceptedException, TimeoutException, StaleElementReferenceException
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -41,27 +41,34 @@ class Base():
 
     def safe_click(self, locator, timeout=20, retries=3):
         """
-        Универсальный метод для безопасного клика с повторными попытками
+        Универсальный метод для безопасного клика с обработкой Stale Element
         """
         for attempt in range(retries):
             try:
-                # Ожидание элемента
+                # Всегда ищем элемент заново для избежания Stale Element
                 element = WebDriverWait(self.driver, timeout).until(
                     EC.element_to_be_clickable(locator)
                 )
 
-                # Прокрутка к элементу
-                self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
-                time.sleep(0.5)  # Небольшая пауза после прокрутки
+                # Дополнительная проверка видимости элемента
+                if not element.is_displayed():
+                    self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+                    time.sleep(1)
 
-                # Попытка обычного клика
+                # Попытка клика
                 element.click()
                 return True
 
+            except StaleElementReferenceException:
+                print(f"Stale element, повторный поиск элемента {locator}, попытка {attempt + 1}/{retries}")
+                # При Stale Element просто переходим к следующей попытке
+
             except ElementClickInterceptedException:
-                # Если обычный клик не работает, используем JavaScript
                 try:
-                    element = self.driver.find_element(*locator)
+                    # JavaScript клик при перекрытии элемента
+                    element = WebDriverWait(self.driver, 5).until(
+                        EC.presence_of_element_located(locator)
+                    )
                     self.driver.execute_script("arguments[0].click();", element)
                     return True
                 except Exception:
@@ -69,11 +76,12 @@ class Base():
 
             except TimeoutException:
                 print(f"Элемент {locator} не найден, попытка {attempt + 1}/{retries}")
+                # Дополнительное ожидание загрузки страницы
+                time.sleep(2)
 
             except Exception as e:
                 print(f"Ошибка при клике: {e}, попытка {attempt + 1}/{retries}")
 
-            # Пауза между попытками
             if attempt < retries - 1:
                 time.sleep(2)
 
