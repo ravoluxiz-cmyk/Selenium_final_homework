@@ -4,7 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from base.base_class import Base
-
+from utilities.logger import Logger
 
 URL = "https://www.chitai-gorod.ru/"
 
@@ -92,6 +92,8 @@ class Main_page(Base):
     #Methods
 
     def main_page_actions(self):
+
+        Logger.add_start_step(method='main_page_actions')
         self.driver.get(URL)
         self.get_current_url()
         self.click_yes_im_here()
@@ -102,5 +104,4 @@ class Main_page(Base):
         self.click_button_fedor_dostoevsky()
         self.click_button_buy_button()
         self.click_button_cart()
-        # self.assert_url("https://www.chitai-gorod.ru/cart")
-        self.click_confirmation()
+        Logger.add_end_step(url=self.driver.current_url, method='main_page_actions')
