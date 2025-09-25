@@ -1,0 +1,6 @@
+start test
+Current url is:  https://www.chitai-gorod.ru/
+Current url is:  https://www.chitai-gorod.ru/catalog/books/rossijskaya-literatura-110050
+Stale element, повторный поиск элемента ('xpath', '//*[@id="__nuxt"]/div/div[3]/div[1]/div/div/div[2]/div/div/div[3]/div[1]/div[2]/div[4]/button[1]'), попытка 1/3
+Current url is:  https://www.chitai-gorod.ru/catalog/books/rossijskaya-klassicheskaya-proza-110052?filters[authors]=598363
+end test

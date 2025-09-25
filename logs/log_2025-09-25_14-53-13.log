@@ -1,0 +1,22 @@
+
+-----
+Test: test/test_smoke.py::test_smoke (call)
+Start time: 2025-09-25 14:53:13.729007
+Start name method: main_page_actions
+
+End time: 2025-09-25 14:53:20.824309
+End name method: main_page_actions
+URL: https://www.chitai-gorod.ru/catalog/books/rossijskaya-literatura-110050
+
+-----
+
+-----
+Test: test/test_smoke.py::test_smoke (call)
+Start time: 2025-09-25 14:53:20.824618
+Start name method: cart_page_actions
+
+End time: 2025-09-25 14:53:27.296538
+End name method: cart_page_actions
+URL: None
+
+-----

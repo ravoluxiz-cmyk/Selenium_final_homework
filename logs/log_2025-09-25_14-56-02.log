@@ -1,0 +1,22 @@
+
+-----
+Test: test_smoke.py::test_smoke (call)
+Start time: 2025-09-25 14:56:03.473424
+Start name method: main_page_actions
+
+End time: 2025-09-25 14:56:06.852503
+End name method: main_page_actions
+URL: https://www.chitai-gorod.ru/
+
+-----
+
+-----
+Test: test_smoke.py::test_smoke (call)
+Start time: 2025-09-25 14:56:06.852684
+Start name method: cart_page_actions
+
+End time: 2025-09-25 14:56:11.921278
+End name method: cart_page_actions
+URL: None
+
+-----

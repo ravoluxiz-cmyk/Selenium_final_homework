@@ -1,0 +1,5 @@
+start test
+Current url is:  https://www.chitai-gorod.ru/
+Current url is:  https://www.chitai-gorod.ru/
+Current url is:  https://www.chitai-gorod.ru/catalog/books/rossijskaya-klassicheskaya-proza-110052?filters[authors]=598363
+end test
