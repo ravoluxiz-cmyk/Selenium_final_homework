@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -54,11 +55,11 @@ class Catalog_page(Base):
     #Methods
 
     def catalog_page_actions(self):
-
-        Logger.add_start_step(method='cart_page_actions')
-        self.get_current_url()
-        self.click_button_russian_classics()
-        self.click_button_fedor_dostoevsky()
-        self.click_button_buy_button()
-        self.click_button_cart()
-        Logger.add_end_step(url=self.get_current_url(), method='cart_page_actions')
+        with allure.step("Покупка книги и переход в корзину"):
+            Logger.add_start_step(method='cart_page_actions')
+            self.get_current_url()
+            self.click_button_russian_classics()
+            self.click_button_fedor_dostoevsky()
+            self.click_button_buy_button()
+            self.click_button_cart()
+            Logger.add_end_step(url=self.get_current_url(), method='cart_page_actions')

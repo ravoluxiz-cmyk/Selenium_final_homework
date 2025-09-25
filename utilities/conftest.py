@@ -25,6 +25,7 @@ def set_up():
     chrome_options.add_argument("--disable-background-timer-throttling")
     chrome_options.add_argument("--disable-renderer-backgrounding")
     chrome_options.add_argument("--disable-backgrounding-occluded-windows")
+
     # Запускаем Chrome с настройками
     driver = webdriver.Chrome(options=chrome_options)
     driver.maximize_window()

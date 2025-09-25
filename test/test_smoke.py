@@ -1,11 +1,11 @@
 import time
-
+import allure
 # from pages.cart_page import Cart_page
 from pages.catalog_page import Catalog_page
 from pages.main_page import Main_page
 from utilities.conftest import set_up
 
-
+@allure.description("Прохождение бизнес пути покупки книги")
 def test_smoke(set_up):
 
     mp = Main_page(set_up)  # Передаем драйвер из фикстуры
