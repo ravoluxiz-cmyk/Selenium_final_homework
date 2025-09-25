@@ -3,7 +3,7 @@ import os
 
 
 class Logger():
-    file_name = "/Users/dmitry/PycharmProjects/Selenium_final_homework/logs/log_" + str(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".log"
+    file_name = "/Users/dmitry/PycharmProjects/Selenium_final_homework1/logs/log_" + str(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + ".log"
 
     @classmethod
     def write_log_to_file(cls, data: str):

@@ -1,6 +1,6 @@
 import time
 
-from pages.cart_page import Cart_page
+# from pages.cart_page import Cart_page
 from pages.catalog_page import Catalog_page
 from pages.main_page import Main_page
 from utilities.conftest import set_up

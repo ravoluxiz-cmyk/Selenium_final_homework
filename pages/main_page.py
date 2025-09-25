@@ -93,6 +93,7 @@ class Main_page(Base):
 
     def main_page_actions(self):
 
+        Logger.add_start_step(method='main_page_actions')
         self.driver.get(URL)
         self.get_current_url()
         self.click_yes_im_here()
@@ -103,3 +104,4 @@ class Main_page(Base):
         self.click_button_fedor_dostoevsky()
         self.click_button_buy_button()
         self.click_button_cart()
+        Logger.add_end_step(url=self.driver.current_url, method='main_page_actions')
